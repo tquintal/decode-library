@@ -27,9 +27,9 @@
 }
 
 .home-second-section-container {
-  position: absolute;
+  /* position: absolute;
   left: 0;
-  width: 100%;
+  width: 100%; */
   background: var(--grey);
   display: flex;
   align-items: center;
@@ -38,7 +38,8 @@
 
 .home-second-section {
   width: 1280px;
-  padding: 40px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -93,4 +94,31 @@
 .book-author {
   font-size: 14px;
   font-weight: 400;
+}
+
+.home-third-section-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+
+.home-third-section-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.home-third-section-left input {
+  all: unset;
+  background: var(--white);
+  color: var(--black);
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 100px;
+  width: 220px;
+}
+
+.home-third-section-left form {
+  display: flex;
+  gap: 20px;
 }

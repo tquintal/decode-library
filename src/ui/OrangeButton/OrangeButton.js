@@ -2,8 +2,10 @@ import classes from './OrangeButton.module.css';
 
 const OrangeButton = props => {
     return <button
-        className={classes['orange-button']}
+        type={props.type}
         onClick={props.onClick}
+        className={classes['orange-button']}
+        style={props.style}
     >
         {props.content}
     </button>
