@@ -1,3 +1,96 @@
-h2 {
-  color: var(--orange);
+.home-container {
+  width: 1280px;
+  height: 610px;
+  padding: 40px;
+  padding-top: 0px;
+}
+
+.home-first-section {
+  display: flex;
+}
+
+.banner-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+}
+
+.welcome-text-title {
+  font-family: "Rokkitt", serif;
+  font-weight: 500;
+  font-size: 60px;
+}
+
+.welcome-text {
+  font-size: 20px;
+}
+
+.home-second-section-container {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-second-section {
+  width: 1280px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.home-second-section-title {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: var(--black);
+}
+
+.home-second-section-title h1 {
+  font-family: "Rokkitt", serif;
+  font-size: 40px;
+}
+
+.home-second-section-title p {
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+}
+
+.books-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.book-container img {
+  height: 381px;
+  width: fit-content;
+}
+
+.book-description {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--black);
+  max-width: 264px;
+}
+
+.book-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.book-author {
+  font-size: 14px;
+  font-weight: 400;
 }

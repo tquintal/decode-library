@@ -33,7 +33,7 @@ function Header() {
 
         <div className={classes['login-language']}>
             <button className={classes['login-button']}>Login</button>
-            <div className={classes['language']} onMouseEnter={displayLanguageHandler} onMouseLeave={displayLanguageHandler}>
+            <div className={classes['language']} onClick={displayLanguageHandler}>
                 <img src={Arrow} alt='arrow' style={{ transform: displayLanguageDropdown && 'rotate(180deg)' }} />
                 <img src={PT} alt='pt-flag' />
                 {displayLanguageDropdown &&
