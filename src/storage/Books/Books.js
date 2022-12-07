@@ -13,7 +13,8 @@ export const Books =
         author: 'Alexandre Monteiro',
         category: 'Desenvolvimento pessoal',
         price: '2€',
-        image: FirstBook
+        available: true,
+        image: FirstBook,
     },
     {
         id: 3,
@@ -21,14 +22,16 @@ export const Books =
         author: 'Haven Obrien',
         category: 'Outros',
         price: '1,5€',
+        available: true,
         image: SecondBook
     },
     {
         id: 4,
         title: 'Grandes Palavras Pequenas Ações',
         author: 'Joana Santos',
-        category: 'desenvolvimento pessoal',
+        category: 'Desenvolvimento pessoal',
         price: '1,3€',
+        available: true,
         image: ThirdBook
     },
     {
@@ -37,6 +40,7 @@ export const Books =
         author: 'Leo Tolstoy',
         category: 'Outros',
         price: '2€',
+        available: false,
         image: FourthBook
     },
     {
@@ -45,6 +49,7 @@ export const Books =
         author: 'Alice Kellen',
         category: 'Outros',
         price: '2€',
+        available: true,
         image: FifthBook
     },
     {
@@ -53,6 +58,7 @@ export const Books =
         author: 'Richard Osman',
         category: 'Outros',
         price: '2€',
+        available: true,
         image: SixthBook
     },
     {
@@ -61,5 +67,6 @@ export const Books =
         author: 'Abdulrazak Gurnah',
         category: 'Outros',
         price: '2€',
+        available: true,
         image: SeventhBook
     }];

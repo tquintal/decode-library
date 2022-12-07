@@ -16,6 +16,8 @@
 
 body {
   background: var(--black);
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .main {

@@ -6,7 +6,13 @@ import NewBook from './assets/new-book.svg';
 import Pagination from './assets/pagination.svg';
 
 function Library() {
+    const [search, setSearch] = useState('');
     const [highlighted, setHighlighted] = useState('1');
+
+    const setSearchHandler = event => {
+        setSearch(event.target.value);
+        console.log(event.target.value);
+    };
 
     const setHighlightedHandler = event => {
         setHighlighted(event.target.id);
@@ -26,14 +32,14 @@ function Library() {
 
     return <div className={classes['library-container']}>
         <h1>A nossa biblioteca</h1>
-        <Search placeholder='Pesquise um livro' />
+        <Search value={search} onChange={setSearchHandler} placeholder='Pesquise um livro' />
         <div className={classes['books-list-container']}>
             <div className={classes['new-book']}>
                 <img src={NewBook} alt='new-book' />
                 <p>Adicionar um livro</p>
             </div>
 
-            {Books.map(book =>
+            {Books.map(book => book.title.toLowerCase().includes(search.trim().toLowerCase()) &&
                 <div key={book.id} className={classes['book-card']}>
                     <img src={book.image} alt={book.title} />
                     <p className={classes['book-title']}>{book.title}</p>
