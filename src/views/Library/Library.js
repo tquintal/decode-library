@@ -12,6 +12,14 @@ function Library() {
         setHighlighted(event.target.id);
     };
 
+    const subtractHighlightedHandler = () => {
+        setHighlighted(prev => `${parseInt(prev) - 1}`);
+    };
+
+    const addHighlightedHandler = () => {
+        setHighlighted(prev => `${parseInt(prev) + 1}`);
+    };
+
     return <div className={classes['library-container']}>
         <h1>A nossa biblioteca</h1>
         <Search placeholder='Pesquise um livro' />
@@ -32,12 +40,12 @@ function Library() {
 
         </div>
         <div className={classes['pagination-container']}>
-            <img src={Pagination} alt='pagination' style={{ rotate: '180deg' }} className={`${highlighted === '1' && classes['dim']}`} />
+            <img src={Pagination} alt='pagination' style={{ rotate: '180deg' }} className={`${highlighted === '1' && classes['dim']}`} onClick={subtractHighlightedHandler} />
             <p id='1' onClick={setHighlightedHandler} className={`${highlighted === '1' && classes['highlighted']}`}>1</p>
             <p id='2' onClick={setHighlightedHandler} className={`${highlighted === '2' && classes['highlighted']}`}>2</p>
             <p id='3' onClick={setHighlightedHandler} className={`${highlighted === '3' && classes['highlighted']}`}>3</p>
             <p id='4' onClick={setHighlightedHandler} className={`${highlighted === '4' && classes['highlighted']}`}>4</p>
-            <img src={Pagination} alt='pagination' className={`${highlighted === '4' && classes['dim']}`} />
+            <img src={Pagination} alt='pagination' className={`${highlighted === '4' && classes['dim']}`} onClick={addHighlightedHandler} />
         </div>
     </div>
 };
