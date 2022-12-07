@@ -17,7 +17,7 @@
 }
 
 .welcome-text-title {
-  font-family: "Rokkitt", serif;
+  font-family: var(--rokkitt);
   font-weight: 500;
   font-size: 60px;
 }
@@ -53,7 +53,7 @@
 }
 
 .home-second-section-title h1 {
-  font-family: "Rokkitt", serif;
+  font-family: var(--rokkitt);
   font-size: 40px;
 }
 

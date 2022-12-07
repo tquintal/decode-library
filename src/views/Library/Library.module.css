@@ -5,10 +5,11 @@
   padding: 40px;
   padding-top: 0px;
   gap: 50px;
+  font-family: var(--rubik);
 }
 
 .library-container h1 {
-  font-family: "Rokkitt", serif;
+  font-family: var(--rokkitt);
   font-weight: 500;
   font-size: 50px;
 }

@@ -2,12 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: "Rubik", sans-serif; */
 }
 
 :root {
   color-scheme: dark;
   /* COLORS */
+  --rubik: "Rubik", sans-serif;
+  --rokkitt: "Rokkitt", serif;
   --orange: #ff4e16;
   --grey: #e3e3e3;
   --white: #ffffff;

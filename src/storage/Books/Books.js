@@ -14,6 +14,9 @@ export const Books =
         category: 'Desenvolvimento pessoal',
         price: '2€',
         available: true,
+        likes: 40,
+        dislikes: 6,
+        publish: 'Planeta, junho de 2021',
         image: FirstBook,
     },
     {
@@ -23,6 +26,9 @@ export const Books =
         category: 'Outros',
         price: '1,5€',
         available: true,
+        likes: 0,
+        dislikes: 0,
+        publish: 'Outros',
         image: SecondBook
     },
     {
@@ -32,6 +38,9 @@ export const Books =
         category: 'Desenvolvimento pessoal',
         price: '1,3€',
         available: true,
+        likes: 0,
+        dislikes: 0,
+        publish: 'Outros',
         image: ThirdBook
     },
     {
@@ -41,6 +50,9 @@ export const Books =
         category: 'Outros',
         price: '2€',
         available: false,
+        likes: 0,
+        dislikes: 0,
+        publish: 'Outros',
         image: FourthBook
     },
     {
@@ -50,6 +62,9 @@ export const Books =
         category: 'Outros',
         price: '2€',
         available: true,
+        likes: 0,
+        dislikes: 0,
+        publish: 'Outros',
         image: FifthBook
     },
     {
@@ -59,6 +74,9 @@ export const Books =
         category: 'Outros',
         price: '2€',
         available: true,
+        likes: 0,
+        dislikes: 0,
+        publish: 'Outros',
         image: SixthBook
     },
     {
@@ -68,5 +86,8 @@ export const Books =
         category: 'Outros',
         price: '2€',
         available: true,
+        likes: 0,
+        dislikes: 0,
+        publish: 'Outros',
         image: SeventhBook
     }];
