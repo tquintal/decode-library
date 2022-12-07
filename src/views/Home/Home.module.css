@@ -65,6 +65,7 @@
 .books-container {
   display: flex;
   justify-content: space-between;
+  font-family: var(--rubik);
 }
 
 .book-container {
@@ -100,6 +101,7 @@
   display: flex;
   justify-content: space-between;
   padding-top: 50px;
+  font-family: var(--rubik);
 }
 
 .home-third-section-left {

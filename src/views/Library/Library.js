@@ -1,5 +1,6 @@
 import Context from '../../context/context';
 import { useContext, useState, Fragment } from 'react';
+import AddBook from './AddBook/AddBook';
 import BookDetails from './BookDetails/BookDetails';
 import classes from './Library.module.css';
 import Search from '../../components/Search/Search';
@@ -15,6 +16,10 @@ function Library() {
 
     const setSearchHandler = event => {
         setSearch(event.target.value);
+    };
+
+    function addBookHandler() {
+        context.setShowAddBook();
     };
 
     const onExpandBookDetailsHandler = event => {
@@ -38,12 +43,13 @@ function Library() {
     };
 
     return <Fragment>
+        {context.showAddBook && <AddBook />}
         {context.selectedBook !== '' ? <BookDetails /> :
             <div className={classes['library-container']}>
                 <h1>A nossa biblioteca</h1>
                 <Search value={search} onChange={setSearchHandler} placeholder='Pesquise um livro' />
                 <div className={classes['books-list-container']}>
-                    <div className={classes['new-book']}>
+                    <div className={classes['new-book']} onClick={addBookHandler}>
                         <img src={NewBook} alt='new-book' />
                         <p>Adicionar um livro</p>
                     </div>

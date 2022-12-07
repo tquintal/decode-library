@@ -4,6 +4,7 @@ import PrimaryButton from '../../ui/PrimaryButton/PrimaryButton';
 import { Books } from '../../storage/Books/Books';
 import BookFigure from './assets/book-figure.svg';
 import NewsletterFigure from './assets/newsletter-figure.svg';
+import Input from '../../components/Input/Input';
 
 function Home() {
     const [email, setEmail] = useState('');
@@ -60,11 +61,12 @@ function Home() {
                 <h1>Inscreva-se na nossa newsletter</h1>
                 <p>Receba todas as novidades que o espera.</p>
                 <form onSubmit={onSubmitHandler}>
-                    <input
+                    <Input
                         type='email'
                         placeholder='Email'
                         value={email}
                         onChange={onEmailChangeHandler}
+                        style={{ width: '240px' }}
                     />
                     <PrimaryButton type='submit' content='Inscrever' style={{ padding: '10px', width: '100px' }} />
                 </form>
