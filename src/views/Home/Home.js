@@ -43,7 +43,7 @@ function Home() {
                 <div className={classes['books-container']}>
                     {Books.sort((a, b) => a.id - b.id).map(book => book.id <= 4 &&
                         <div key={book.id} className={classes['book-container']}>
-                            <img src={book.image} alt='book' />
+                            <img src={book.image} alt={book.title} />
                             <div className={classes['book-description']}>
                                 <p className={classes['book-title']}>{book.title}</p>
                                 <p className={classes['book-author']}>{book.author}</p>
