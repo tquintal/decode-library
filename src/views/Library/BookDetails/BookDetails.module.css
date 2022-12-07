@@ -1,0 +1,21 @@
+.book-details-container {
+  display: flex;
+  flex-direction: column;
+  width: 1280px;
+  padding: 40px;
+  padding-top: 0px;
+  gap: 50px;
+}
+
+.book-details-navigation {
+  display: flex;
+  align-items: center;
+  font-family: "Rokkitt", serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.back-to-library {
+  color: var(--orange);
+  cursor: pointer;
+}
