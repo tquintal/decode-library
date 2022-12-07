@@ -1,0 +1,19 @@
+.secondary-button {
+  all: unset;
+  cursor: pointer;
+  padding: 12px;
+  min-width: 168px;
+  background: none;
+  border: 2px solid var(--grey);
+  border-radius: 100px;
+  color: var(--grey);
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  width: fit-content;
+  text-align: center;
+}
+
+.secondary-button:hover {
+  border: 2px solid var(--white);
+  color: var(--white);
+}

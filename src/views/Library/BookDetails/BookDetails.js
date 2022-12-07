@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Context from '../../../context/context';
 import classes from './BookDetails.module.css';
 import Arrow from './assets/arrow-figure.svg';
@@ -6,13 +6,20 @@ import Favorite from './assets/favourite-figure.svg';
 import Like from './assets/like-figure.svg';
 import DisLike from './assets/dislike-figure.svg';
 import Dot from './assets/dot-figure.svg';
-import OrangeButton from '../../../ui/OrangeButton/OrangeButton';
+import PrimaryButton from '../../../ui/PrimaryButton/PrimaryButton';
+import SecondaryButton from '../../../ui/SecondaryButton/SecondaryButton';
 
 function BookDetails() {
     const context = useContext(Context);
 
     const backToLibraryHandler = () => {
         context.setSelectedBook('');
+    };
+
+    const [ordered, setOrder] = useState(context.selectedBook.ordered);
+
+    const setOrderHandler = () => {
+        setOrder(prev => !prev);
     };
 
     return <div className={classes['book-details-container']}>
@@ -47,7 +54,12 @@ function BookDetails() {
                 </div>
                 <p>Editora: <span style={{ fontWeight: '500' }}>{context.selectedBook.publish}</span></p>
                 <h1 className={classes['price']}>{context.selectedBook.price}/semana</h1>
-                <OrangeButton content='Requisitar' />
+                {context.selectedBook.available ? ordered ? <SecondaryButton content='Devolver' onClick={setOrderHandler} /> : <PrimaryButton content='Requisitar' onClick={setOrderHandler} /> :
+                    <div>
+                        <p style={{ fontWeight: '500', padding: '15px' }}>Indisponível</p>
+                        <p style={{ fontSize: '12px' }}>Este livro já foi requisitado ou já não está na nossa biblioteca.</p>
+                    </div>
+                }
             </div>
         </div>
     </div>

@@ -6,10 +6,12 @@
 
 :root {
   color-scheme: dark;
-  /* COLORS */
+  /* FONTS */
   --rubik: "Rubik", sans-serif;
   --rokkitt: "Rokkitt", serif;
+  /* COLORS */
   --orange: #ff4e16;
+  --orangeSmooth: #ff8660;
   --grey: #e3e3e3;
   --white: #ffffff;
   --black: #252525;

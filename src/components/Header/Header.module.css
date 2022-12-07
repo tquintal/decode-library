@@ -24,6 +24,10 @@
   font-weight: 500;
 }
 
+.navigation-item a {
+  all: unset;
+}
+
 .under-line {
   width: 36px;
 }

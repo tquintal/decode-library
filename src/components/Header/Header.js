@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import classes from './Header.module.css';
 import Logo from './assets/logo.svg';
+import { NavLink } from 'react-router-dom';
 import Arrow from './assets/arrow-down.svg';
 import PT from './assets/pt-flag.svg';
 import EN from './assets/uk-flag.svg';
@@ -8,8 +9,16 @@ import EN from './assets/uk-flag.svg';
 function Header() {
     const [displayLanguageDropdown, setDisplayLanguageDropdown] = useState(false);
 
+    const [location, setLocation] = useState(
+        window.location.pathname !== '/' ? window.location.pathname.slice(1) : '/'
+    );
+
     const displayLanguageHandler = () => {
         setDisplayLanguageDropdown(prevState => !prevState);
+    };
+
+    const setLocationHandler = event => {
+        setLocation(event.currentTarget.id);
     };
 
     return <div className={classes['header-container']}>
@@ -17,17 +26,20 @@ function Header() {
 
         <div className={classes['navigation']}>
             <div className={classes['navigation-item']}>
-                <p>Home</p>
-                <hr className={classes['under-line']} />
+                <NavLink to='/' id='/' onClick={setLocationHandler}><p>Home</p></NavLink>
+                {location === '/' && <hr className={classes['under-line']} />}
             </div>
             <div className={classes['navigation-item']}>
-                <p>Livros</p>
+                <NavLink to='/library' id='library' onClick={setLocationHandler}><p>Livros</p></NavLink>
+                {location === 'library' && <hr className={classes['under-line']} />}
             </div>
             <div className={classes['navigation-item']}>
-                <p>Categorias</p>
+                <NavLink to='/categories' id='categories' onClick={setLocationHandler}><p>Categorias</p></NavLink>
+                {location === 'categories' && <hr className={classes['under-line']} />}
             </div>
             <div className={classes['navigation-item']}>
-                <p>Sobre nós</p>
+                <NavLink to='/about' id='about' onClick={setLocationHandler}><p>Sobre nós</p></NavLink>
+                {location === 'about' && <hr className={classes['under-line']} />}
             </div>
         </div>
 

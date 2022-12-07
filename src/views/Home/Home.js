@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import classes from './Home.module.css';
-import OrangeButton from '../../ui/OrangeButton/OrangeButton';
+import PrimaryButton from '../../ui/PrimaryButton/PrimaryButton';
 import { Books } from '../../storage/Books/Books';
 import BookFigure from './assets/book-figure.svg';
 import NewsletterFigure from './assets/newsletter-figure.svg';
@@ -27,7 +27,7 @@ function Home() {
             <div className={classes['banner-left']}>
                 <h1 className={classes['welcome-text-title']}>Bem-vindo à nossa biblioteca online</h1>
                 <p className={classes['welcome-text']}>Descruba os romances, histórias míticas, biografias e muito mais na nossa biblioteca. Requisite o seu próximo livro de uma forma fácil e em poucos passos</p>
-                <OrangeButton content='Requisite já um livro' onClick={onClickHandler} />
+                <PrimaryButton content='Requisite já um livro' onClick={onClickHandler} />
             </div>
             <img src={BookFigure} alt='book-figure' />
         </div>
@@ -66,7 +66,7 @@ function Home() {
                         value={email}
                         onChange={onEmailChangeHandler}
                     />
-                    <OrangeButton type='submit' content='Inscrever' style={{ padding: '10px', width: '100px' }} />
+                    <PrimaryButton type='submit' content='Inscrever' style={{ padding: '10px', width: '100px' }} />
                 </form>
             </div>
             <img src={NewsletterFigure} alt='newsletter-figure' />
