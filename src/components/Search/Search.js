@@ -18,6 +18,7 @@ const Search = props => {
             placeholder={props.placeholder}
             value={search}
             onChange={setSearchHandler}
+            autoFocus={true}
         />
     </div>
 };
