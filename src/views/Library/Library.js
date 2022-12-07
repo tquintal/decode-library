@@ -13,11 +13,15 @@ function Library() {
     };
 
     const subtractHighlightedHandler = () => {
-        setHighlighted(prev => `${parseInt(prev) - 1}`);
+        const subtract = `${parseInt(highlighted) - 1}`;
+        if (subtract > 0)
+            setHighlighted(subtract);
     };
 
     const addHighlightedHandler = () => {
-        setHighlighted(prev => `${parseInt(prev) + 1}`);
+        const add = `${parseInt(highlighted) + 1}`;
+        if (add < 5)
+            setHighlighted(add);
     };
 
     return <div className={classes['library-container']}>
