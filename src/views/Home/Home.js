@@ -1,4 +1,5 @@
-import { Fragment, useState } from 'react';
+import Context from '../../context/context';
+import { useContext, useState, Fragment } from 'react';
 import classes from './Home.module.css';
 import PrimaryButton from '../../ui/PrimaryButton/PrimaryButton';
 import { Books } from '../../storage/Books/Books';
@@ -9,6 +10,8 @@ import NewsletterFigure from './assets/newsletter-figure.svg';
 import Input from '../../components/Input/Input';
 
 function Home() {
+    const context = useContext(Context);
+
     const [email, setEmail] = useState('');
 
     const onClickHandler = () => {
@@ -24,7 +27,7 @@ function Home() {
         event.preventDefault();
         if (email !== '') {
             setShowSubscribedHandler();
-            console.log('HERE');
+            setEmail('');
         };
     };
 
@@ -32,7 +35,7 @@ function Home() {
         setEmail(event.target.value);
     };
 
-    return <div>
+    return <Fragment>
         {/* NEWSLETTER SUCCESS */}
         {showSubscribed &&
             <DimmedBackground>
@@ -49,9 +52,13 @@ function Home() {
         <div className={classes['home-first-section-container']}>
             <div className={classes['home-first-section']}>
                 <div className={classes['banner-left']}>
-                    <h1 className={classes['welcome-text-title']}>Bem-vindo à nossa biblioteca online</h1>
-                    <p className={classes['welcome-text']}>Descruba os romances, histórias míticas, biografias e muito mais na nossa biblioteca. Requisite o seu próximo livro de uma forma fácil e em poucos passos</p>
-                    <PrimaryButton content='Requisite já um livro' onClick={onClickHandler} />
+                    <h1 className={classes['welcome-text-title']}>
+                        {context.content.welcome}
+                    </h1>
+                    <p className={classes['welcome-text']}>
+                        {context.content.description}
+                    </p>
+                    <PrimaryButton content={context.content.orderBook} onClick={onClickHandler} />
                 </div>
                 <img src={BookFigure} alt='book-figure' />
             </div>
@@ -61,8 +68,8 @@ function Home() {
         <div className={classes['home-second-section-container']}>
             <div className={classes['home-second-section']}>
                 <div className={classes['home-second-section-title']}>
-                    <h1>Sempre com novidades</h1>
-                    <p>Veja os novos livros que apareceram! </p>
+                    <h1>{context.content.secondSectionTitle}</h1>
+                    <p>{context.content.secondSectionDescription}</p>
                 </div>
 
                 <div className={classes['books-container']}>
@@ -83,8 +90,8 @@ function Home() {
         <div className={classes['home-third-section-container']}>
             <div className={classes['home-third-section']}>
                 <div className={classes['home-third-section-left']}>
-                    <h1>Inscreva-se na nossa newsletter</h1>
-                    <p>Receba todas as novidades que o espera.</p>
+                    <h1>{context.content.secondSectionTitle}</h1>
+                    <p>{context.content.secondSectionDescription}</p>
                     <form onSubmit={onSubmitHandler}>
                         <Input
                             type='email'
@@ -93,13 +100,13 @@ function Home() {
                             onChange={onEmailChangeHandler}
                             style={{ width: '240px' }}
                         />
-                        <PrimaryButton type='submit' content='Inscrever' style={{ padding: '10px', width: '100px' }} />
+                        <PrimaryButton type='submit' content={context.content.thirdSectionButton} style={{ padding: '10px', width: '100px' }} />
                     </form>
                 </div>
                 <img src={NewsletterFigure} alt='newsletter-figure' />
             </div>
         </div>
-    </div>
+    </Fragment>
 };
 
 export default Home;

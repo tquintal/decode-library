@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import Context from '../../context/context';
+import { useContext, useState } from 'react';
 import classes from './Header.module.css';
 import Logo from './assets/logo.svg';
 import { NavLink } from 'react-router-dom';
@@ -7,6 +8,8 @@ import PT from './assets/pt-flag.svg';
 import EN from './assets/uk-flag.svg';
 
 function Header() {
+    const context = useContext(Context);
+
     const [displayLanguageDropdown, setDisplayLanguageDropdown] = useState(false);
 
     const [location, setLocation] = useState(
@@ -21,24 +24,28 @@ function Header() {
         setLocation(event.currentTarget.id);
     };
 
+    const setLanguageHandler = event => {
+        context.setLanguage(event.currentTarget.id);
+    };
+
     return <div className={classes['header-container']}>
         <img src={Logo} alt='logo' className={classes['logo']} />
 
         <div className={classes['navigation']}>
             <div className={classes['navigation-item']}>
-                <NavLink to='/' id='/' onClick={setLocationHandler}><p>Home</p></NavLink>
+                <NavLink to='/' id='/' onClick={setLocationHandler}><p>{context.content.menu.home}</p></NavLink>
                 {location === '/' && <hr className={classes['under-line']} />}
             </div>
             <div className={classes['navigation-item']}>
-                <NavLink to='/library' id='library' onClick={setLocationHandler}><p>Livros</p></NavLink>
+                <NavLink to='/library' id='library' onClick={setLocationHandler}><p>{context.content.menu.books}</p></NavLink>
                 {location === 'library' && <hr className={classes['under-line']} />}
             </div>
             <div className={classes['navigation-item']}>
-                <NavLink to='/categories' id='categories' onClick={setLocationHandler}><p>Categorias</p></NavLink>
+                <NavLink to='/categories' id='categories' onClick={setLocationHandler}><p>{context.content.menu.categories}</p></NavLink>
                 {location === 'categories' && <hr className={classes['under-line']} />}
             </div>
             <div className={classes['navigation-item']}>
-                <NavLink to='/about' id='about' onClick={setLocationHandler}><p>Sobre nós</p></NavLink>
+                <NavLink to='/about' id='about' onClick={setLocationHandler}><p>{context.content.menu.about}</p></NavLink>
                 {location === 'about' && <hr className={classes['under-line']} />}
             </div>
         </div>
@@ -50,10 +57,10 @@ function Header() {
                 <img src={PT} alt='pt-flag' />
                 {displayLanguageDropdown &&
                     <div className={classes['dropdown']}>
-                        <div className={classes['dropdown-item']}>
+                        <div className={classes['dropdown-item']} id='PT' onClick={setLanguageHandler}>
                             <img src={PT} alt='pt-flag' />
                         </div>
-                        <div className={classes['dropdown-item']}>
+                        <div className={classes['dropdown-item']} id='EN' onClick={setLanguageHandler}>
                             <img src={EN} alt='uk-flag' />
                         </div>
                     </div>
