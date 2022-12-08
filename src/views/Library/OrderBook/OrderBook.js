@@ -4,7 +4,7 @@ import classes from './OrderBook.module.css';
 import Close from '../assets/close-figure.svg';
 import Arrow from './assets/arrow-figure.svg';
 import PrimaryButton from '../../../ui/PrimaryButton/PrimaryButton';
-import OrderPlaced from '../OrderPlaced/OrderPlaced';
+import SuccessModal from '../../../components/SuccessModal/SuccessModal';
 
 const OrderBook = props => {
     const context = useContext(Context);
@@ -38,7 +38,12 @@ const OrderBook = props => {
     };
 
     return <div className={classes['order-book-screen']}>
-        {showOrderPlaced ? <OrderPlaced onExit={onCloseHandler} /> :
+        {showOrderPlaced ? <SuccessModal
+            onClick={onCloseHandler}
+            title='Livro requisitado'
+            message='Requisitou o livro com sucesso.'
+            button='Voltar'
+        /> :
             <div className={classes['order-book-container']}>
                 <div className={classes['title-close-container']}>
                     <h1>Requisitar livro</h1>

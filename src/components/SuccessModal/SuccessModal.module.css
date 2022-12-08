@@ -5,6 +5,7 @@
   background: var(--black);
   padding: 50px;
   border-radius: 20px;
+  min-width: 600px;
 }
 
 .book-added-container h1 {

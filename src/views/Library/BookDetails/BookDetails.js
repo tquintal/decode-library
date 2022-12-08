@@ -32,7 +32,7 @@ function BookDetails() {
 
     return <Fragment>
         {showOrderScreen && <OrderBook onExit={setShowOrderHandler} />}
-        {showReturnScreen && <ReturnBook />}
+        {showReturnScreen && <ReturnBook onExit={setShowReturnScreenHandler} />}
         <div className={classes['book-details-container']}>
             <div className={classes['book-details-navigation']}>
                 <p className={classes['back-to-library']} onClick={backToLibraryHandler}>A nossa biblioteca</p>

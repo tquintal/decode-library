@@ -3,7 +3,7 @@ import classes from './AddBook.module.css';
 import Close from '../assets/close-figure.svg';
 import PrimaryButton from '../../../ui/PrimaryButton/PrimaryButton';
 import Input from '../../../components/Input/Input';
-import BookAdded from '../BookAdded/BookAdded';
+import SuccessModal from '../../../components/SuccessModal/SuccessModal';
 
 const AddBook = props => {
     const [fileName, setFileName] = useState('');
@@ -28,7 +28,12 @@ const AddBook = props => {
     };
 
     return <div className={classes['add-book-screen']}>
-        {bookAdded ? <BookAdded onGetBackClick={onCloseHandler} /> :
+        {bookAdded ? <SuccessModal
+            onClick={onCloseHandler}
+            title='Adicionou um livro'
+            message='Obrigado por adicionar mais um livro à nossa biblioteca.'
+            button='Voltar'
+        /> :
             <div className={classes['add-book-container']}>
                 <div className={classes['title-close-container']}>
                     <h1>Adicionar um livro</h1>

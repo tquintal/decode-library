@@ -6,6 +6,7 @@ import LikeHighlighted from './assets/like-figure-highlighted.svg';
 import Dislike from './assets/dislike-figure.svg';
 import DislikeHighlighted from './assets/dislike-figure-highlighted.svg';
 import PrimaryButton from '../../../ui/PrimaryButton/PrimaryButton';
+import SuccessModal from '../../../components/SuccessModal/SuccessModal';
 
 const ReturnBook = props => {
     const [interaction, setInteraction] = useState('');
@@ -19,29 +20,44 @@ const ReturnBook = props => {
         };
     };
 
+    const [showReturned, setShowReturned] = useState(false);
+    const onReturnHandler = () => {
+        if (interaction !== '') {
+            setShowReturned(prev => !prev);
+        } else {
+            alert('Por favor avalie o livro');
+        };
+    };
+
     return <div className={classes['return-book-screen']}>
-
-        <div className={classes['return-book-container']}>
-            <div className={classes['title-exit']}>
-                <p>Devolver livro</p>
-                <img src={Close} alt='close-figure' />
-            </div>
-
-            <p>Diga-nos a sua opinião sobre este livro.</p>
-
-            <div className={classes['like-dislike-container']}>
-                <div className={classes['like-dislike-figures-container']} id='like' onClick={setInteractionHandler}>
-                    <img src={`${interaction === 'like' ? LikeHighlighted : Like}`} alt='like-figure' />
-                    <p style={interaction === 'like' ? { color: 'var(--orange)' } : {}}>Gostei</p>
+        {showReturned ? <SuccessModal
+            onClick={props.onExit}
+            title='Livro devolvido'
+            message='Devolveu o livro, obrigado!'
+            button='Voltar'
+        /> :
+            <div className={classes['return-book-container']}>
+                <div className={classes['title-exit']}>
+                    <p>Devolver livro</p>
+                    <img src={Close} alt='close-figure' onClick={props.onExit} />
                 </div>
-                <div className={classes['like-dislike-figures-container']} id='dislike' onClick={setInteractionHandler}>
-                    <img src={`${interaction === 'dislike' ? DislikeHighlighted : Dislike}`} alt='like-figure' />
-                    <p style={interaction === 'dislike' ? { color: 'var(--orange)' } : {}}>Não gostei</p>
-                </div>
-            </div>
 
-            <PrimaryButton content='Devolver' className={`${classes['return-button']} ${interaction !== '' && classes['active']}`} />
-        </div>
+                <p>Diga-nos a sua opinião sobre este livro.</p>
+
+                <div className={classes['like-dislike-container']}>
+                    <div className={classes['like-dislike-figures-container']} id='like' onClick={setInteractionHandler}>
+                        <img src={`${interaction === 'like' ? LikeHighlighted : Like}`} alt='like-figure' />
+                        <p style={interaction === 'like' ? { color: 'var(--orange)' } : {}}>Gostei</p>
+                    </div>
+                    <div className={classes['like-dislike-figures-container']} id='dislike' onClick={setInteractionHandler}>
+                        <img src={`${interaction === 'dislike' ? DislikeHighlighted : Dislike}`} alt='like-figure' />
+                        <p style={interaction === 'dislike' ? { color: 'var(--orange)' } : {}}>Não gostei</p>
+                    </div>
+                </div>
+
+                <PrimaryButton content='Devolver' onClick={onReturnHandler} className={`${classes['return-button']} ${interaction !== '' && classes['active']}`} />
+            </div>
+        }
     </div>
 };
 
