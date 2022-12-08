@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import DimmedBackground from '../../../components/DimmedBackground/DimmedBackground';
 import classes from './ReturnBook.module.css';
 import Close from '../assets/close-figure.svg';
 import Like from './assets/like-figure.svg';
@@ -29,7 +30,7 @@ const ReturnBook = props => {
         };
     };
 
-    return <div className={classes['return-book-screen']}>
+    return <DimmedBackground>
         {showReturned ? <SuccessModal
             onClick={props.onExit}
             title='Livro devolvido'
@@ -58,7 +59,7 @@ const ReturnBook = props => {
                 <PrimaryButton content='Devolver' onClick={onReturnHandler} className={`${classes['return-button']} ${interaction !== '' && classes['active']}`} />
             </div>
         }
-    </div>
+    </DimmedBackground>
 };
 
 export default ReturnBook;

@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import Context from '../../../context/context';
+import DimmedBackground from '../../../components/DimmedBackground/DimmedBackground';
 import classes from './OrderBook.module.css';
 import Close from '../assets/close-figure.svg';
 import Arrow from './assets/arrow-figure.svg';
@@ -37,7 +38,7 @@ const OrderBook = props => {
         placeOrderHandler();
     };
 
-    return <div className={classes['order-book-screen']}>
+    return <DimmedBackground>
         {showOrderPlaced ? <SuccessModal
             onClick={onCloseHandler}
             title='Livro requisitado'
@@ -73,7 +74,7 @@ const OrderBook = props => {
                 <PrimaryButton content='Requisitar' className={classes['order-button']} onClick={placeOrderHandler} />
             </div>
         }
-    </div>
+    </DimmedBackground>
 };
 
 export default OrderBook;

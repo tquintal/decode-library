@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import DimmedBackground from '../../../components/DimmedBackground/DimmedBackground';
 import classes from './AddBook.module.css';
 import Close from '../assets/close-figure.svg';
 import PrimaryButton from '../../../ui/PrimaryButton/PrimaryButton';
@@ -27,7 +28,7 @@ const AddBook = props => {
         setFileName(event.target.files[0].name);
     };
 
-    return <div className={classes['add-book-screen']}>
+    return <DimmedBackground>
         {bookAdded ? <SuccessModal
             onClick={onCloseHandler}
             title='Adicionou um livro'
@@ -53,7 +54,7 @@ const AddBook = props => {
                 </form>
             </div>
         }
-    </div>
+    </DimmedBackground>
 };
 
 export default AddBook;
