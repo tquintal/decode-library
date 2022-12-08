@@ -111,7 +111,7 @@
   width: 1280px;
   padding: 40px;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -121,6 +121,7 @@
 .home-third-section-left {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
   gap: 20px;
 }
 
