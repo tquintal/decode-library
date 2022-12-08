@@ -18,8 +18,9 @@ function Library() {
         setSearch(event.target.value);
     };
 
-    function addBookHandler() {
-        context.setShowAddBook();
+    const [showAddBook, setShowAddBook] = useState(false);
+    const setShowAddBookHandler = () => {
+        setShowAddBook(prev => !prev);
     };
 
     const onExpandBookDetailsHandler = event => {
@@ -43,13 +44,13 @@ function Library() {
     };
 
     return <Fragment>
-        {context.showAddBook && <AddBook />}
+        {showAddBook && <AddBook onExit={setShowAddBookHandler} />}
         {context.selectedBook !== '' ? <BookDetails /> :
             <div className={classes['library-container']}>
                 <h1>A nossa biblioteca</h1>
                 <Search value={search} onChange={setSearchHandler} placeholder='Pesquise um livro' />
                 <div className={classes['books-list-container']}>
-                    <div className={classes['new-book']} onClick={addBookHandler}>
+                    <div className={classes['new-book']} onClick={setShowAddBookHandler}>
                         <img src={NewBook} alt='new-book' />
                         <p>Adicionar um livro</p>
                     </div>
@@ -59,7 +60,7 @@ function Library() {
                             <img src={book.image} alt={book.title} />
                             <p className={classes['book-title']}>{book.title}</p>
                             <p className={classes['book-author']}>{book.author}</p>
-                            <p className={classes['book-price']}>{book.price}/semana</p>
+                            <p className={classes['book-price']}>{book.price}€/semana</p>
                         </div>
                     )}
 

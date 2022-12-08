@@ -7,6 +7,15 @@
   border-radius: 20px;
 }
 
+.book-added-container h1 {
+  font-weight: 500;
+  font-size: 28px;
+}
+
+.book-added-container p {
+  font-size: 20px;
+}
+
 .back-button {
   display: flex;
   align-self: center;

@@ -1,24 +1,26 @@
-import Context from '../../../context/context';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import classes from './AddBook.module.css';
-import Close from './assets/close-figure.svg';
+import Close from '../assets/close-figure.svg';
 import PrimaryButton from '../../../ui/PrimaryButton/PrimaryButton';
 import Input from '../../../components/Input/Input';
 import BookAdded from '../BookAdded/BookAdded';
 
-function AddBook() {
-    const context = useContext(Context);
+const AddBook = props => {
     const [fileName, setFileName] = useState('');
     const [bookAdded, setBookAdded] = useState(false);
 
     function onCloseHandler() {
-        context.setShowAddBook();
+        props.onExit();
         setBookAdded(false);
     };
 
     const onSubmitHandler = event => {
         event.preventDefault();
-        setBookAdded(true);
+        if (fileName !== '') {
+            setBookAdded(true);
+        } else {
+            alert('Por favor adicione a imagem do livro.');
+        };
     };
 
     const setFileNameHandler = event => {

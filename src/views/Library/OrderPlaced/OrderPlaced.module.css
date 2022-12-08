@@ -1,0 +1,18 @@
+.order-placed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: var(--black);
+  padding: 45px;
+  border-radius: 20px;
+  min-width: 590px;
+}
+
+.order-placed-container h1 {
+  font-size: 28px;
+}
+
+.order-placed-container-button {
+  align-self: center;
+  width: 160px;
+}

@@ -3,18 +3,11 @@ import { Books } from '../storage/Books/Books';
 
 const Context = React.createContext({
     selectedBook: {},
-    showAddBook: null,
-    setShowAddBook: () => { },
     setSelectedBook: () => { }
 });
 
 export const ContextProvider = props => {
     const [selectedBook, setSelectedBook] = useState('');
-    const [showAddBook, setShowAddBook] = useState(false);
-
-    function setShowAddBookHandler() {
-        setShowAddBook(prev => !prev);
-    };
 
     const setSelectedBookHandler = bookId => {
         if (bookId !== '') {
@@ -28,8 +21,6 @@ export const ContextProvider = props => {
         <Context.Provider
             value={{
                 selectedBook: selectedBook,
-                showAddBook: showAddBook,
-                setShowAddBook: setShowAddBookHandler,
                 setSelectedBook: setSelectedBookHandler
             }}
         >
