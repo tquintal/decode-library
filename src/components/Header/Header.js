@@ -54,7 +54,7 @@ function Header() {
             <button className={classes['login-button']}>Login</button>
             <div className={classes['language']} onClick={displayLanguageHandler}>
                 <img src={Arrow} alt='arrow' style={{ transform: displayLanguageDropdown && 'rotate(180deg)' }} />
-                <img src={PT} alt='pt-flag' />
+                <img src={context.lang === 'PT' ? PT : EN} alt='pt-flag' />
                 {displayLanguageDropdown &&
                     <div className={classes['dropdown']}>
                         <div className={classes['dropdown-item']} id='PT' onClick={setLanguageHandler}>

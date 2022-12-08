@@ -14,10 +14,9 @@ const Context = React.createContext({
 });
 
 export const ContextProvider = props => {
-    const [language, setLanguage] = useState(localStorage.getItem('Lang') || localStorage.setItem('Lang', 'PT'));
-    const [login, setLogin] = useState(localStorage.getItem('Login') || localStorage.setItem('Login', 'false'));
     const [selectedBook, setSelectedBook] = useState('');
 
+    const [language, setLanguage] = useState(localStorage.getItem('Lang') || localStorage.setItem('Lang', 'PT') || 'PT');
     const setLanguageHandler = lang => {
         setLanguage(lang);
         localStorage.setItem('Lang', `${lang}`);
@@ -32,6 +31,7 @@ export const ContextProvider = props => {
         };
     }, [language]);
 
+    const [login, setLogin] = useState(localStorage.getItem('Login') || localStorage.setItem('Login', 'false'));
     const setLoginHandler = () => {
         const state = login === 'true' || false;
         setLogin(state);
