@@ -9,6 +9,7 @@ import Dot from './assets/dot-figure.svg';
 import PrimaryButton from '../../../ui/PrimaryButton/PrimaryButton';
 import SecondaryButton from '../../../ui/SecondaryButton/SecondaryButton';
 import OrderBook from '../OrderBook/OrderBook';
+import ReturnBook from '../ReturnBook/ReturnBook';
 
 function BookDetails() {
     const context = useContext(Context);
@@ -31,7 +32,7 @@ function BookDetails() {
 
     return <Fragment>
         {showOrderScreen && <OrderBook onExit={setShowOrderHandler} />}
-        {showReturnScreen && <></>}
+        {showReturnScreen && <ReturnBook />}
         <div className={classes['book-details-container']}>
             <div className={classes['book-details-navigation']}>
                 <p className={classes['back-to-library']} onClick={backToLibraryHandler}>A nossa biblioteca</p>
@@ -43,7 +44,7 @@ function BookDetails() {
                 <div className={classes['book-interaction-container']}>
                     <img src={context.selectedBook.image} alt='book-cover' />
                     <div className={classes['book-interaction']}>
-                        <img src={Favorite} alt='favorite-figure' />
+                        <img src={Favorite} alt='favorite-figure' className={classes['favorite']} />
                         <div className={classes['like-dislike-container']}>
                             <img src={Like} alt='like-figure' />
                             <p>{context.selectedBook.likes}</p>

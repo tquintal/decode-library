@@ -1,0 +1,58 @@
+.return-book-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  z-index: 15;
+  position: fixed;
+  background: rgb(0 0 0 / 75%);
+  font-family: var(--rubik);
+}
+
+.return-book-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  background: var(--black);
+  padding: 50px;
+  border-radius: 20px;
+  gap: 40px;
+}
+
+.title-exit {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.title-exit img {
+  cursor: pointer;
+}
+
+.like-dislike-container {
+  display: flex;
+  align-self: center;
+  gap: 100px;
+}
+
+.like-dislike-figures-container {
+  text-align: center;
+  cursor: pointer;
+}
+
+.like-dislike-figures-container img {
+  padding-bottom: 15px;
+}
+
+.return-button {
+  color: var(--grey);
+  align-self: center;
+}
+
+.active {
+  color: var(--white);
+}
