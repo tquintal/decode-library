@@ -6,6 +6,7 @@ const Input = props => {
         placeholder={props.placeholder}
         value={props.value}
         onChange={props.onChange}
+        required={props.required || false}
         className={classes['input-component']}
         style={props.style}
     />

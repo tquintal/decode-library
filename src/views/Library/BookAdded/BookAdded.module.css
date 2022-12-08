@@ -1,0 +1,15 @@
+.book-added-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: var(--black);
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.back-button {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  min-width: 128px;
+}
