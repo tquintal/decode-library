@@ -1,12 +1,14 @@
-.home-container {
-  width: 1280px;
-  height: 610px;
-  padding: 40px;
-  padding-top: 0px;
+.home-first-section-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-first-section {
+  width: 1280px;
   display: flex;
+  padding: 40px;
+  padding-bottom: 0px;
 }
 
 .banner-left {
@@ -38,6 +40,7 @@
 
 .home-second-section {
   width: 1280px;
+  padding: 40px;
   padding-top: 50px;
   padding-bottom: 50px;
   display: flex;
@@ -99,9 +102,20 @@
 
 .home-third-section-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 50px;
   font-family: var(--rubik);
+}
+
+.home-third-section {
+  width: 1280px;
+  padding: 40px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
 }
 
 .home-third-section-left {

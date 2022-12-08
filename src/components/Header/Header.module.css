@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  align-self: center;
   gap: 25px;
   padding: 40px;
   font-family: var(--rubik);

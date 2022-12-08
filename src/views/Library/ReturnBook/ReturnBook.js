@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import DimmedBackground from '../../../components/DimmedBackground/DimmedBackground';
+import SuccessModal from '../../../components/SuccessModal/SuccessModal';
 import classes from './ReturnBook.module.css';
 import Close from '../assets/close-figure.svg';
 import Like from './assets/like-figure.svg';
@@ -7,7 +8,6 @@ import LikeHighlighted from './assets/like-figure-highlighted.svg';
 import Dislike from './assets/dislike-figure.svg';
 import DislikeHighlighted from './assets/dislike-figure-highlighted.svg';
 import PrimaryButton from '../../../ui/PrimaryButton/PrimaryButton';
-import SuccessModal from '../../../components/SuccessModal/SuccessModal';
 
 const ReturnBook = props => {
     const [interaction, setInteraction] = useState('');

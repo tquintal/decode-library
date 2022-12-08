@@ -9,4 +9,6 @@
   position: fixed;
   background: rgb(0 0 0 / 75%);
   font-family: var(--rubik);
+  top: 0;
+  left: 0;
 }
