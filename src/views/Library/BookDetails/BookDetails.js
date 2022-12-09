@@ -20,9 +20,7 @@ const BookDetails = props => {
     };
 
     const backToCategoriesHandler = () => {
-        context.setSelectedBook('');
-        context.setSelectedCategory('');
-        context.setSearch('');
+        context.clearStates();
     };
 
     const ordered = context.selectedBook.ordered;

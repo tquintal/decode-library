@@ -17,7 +17,8 @@ const Context = React.createContext({
     setLogin: () => { },
     setSearch: () => { },
     setSelectedBook: () => { },
-    setSelectedCategory: () => { }
+    setSelectedCategory: () => { },
+    clearStates: () => { }
 });
 
 export const ContextProvider = props => {
@@ -63,7 +64,7 @@ export const ContextProvider = props => {
         setSelectedCategory(category);
     };
 
-    const clearStates = () => {
+    const clearStatesHandler = () => {
         setSearch('');
         setSelectedBook('');
         setSelectedCategory('');
@@ -84,7 +85,8 @@ export const ContextProvider = props => {
                 setLogin: setLoginHandler,
                 setSearch: setSearchHandler,
                 setSelectedBook: setSelectedBookHandler,
-                setSelectedCategory: setSelectedCategoryHandler
+                setSelectedCategory: setSelectedCategoryHandler,
+                clearStates: clearStatesHandler
             }}
         >
             {props.children}
