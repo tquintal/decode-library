@@ -11,11 +11,18 @@ import SecondaryButton from '../../../ui/SecondaryButton/SecondaryButton';
 import OrderBook from '../OrderBook/OrderBook';
 import ReturnBook from '../ReturnBook/ReturnBook';
 
-function BookDetails() {
+const BookDetails = props => {
     const context = useContext(Context);
 
     const backToLibraryHandler = () => {
         context.setSelectedBook('');
+        context.setSearch('');
+    };
+
+    const backToCategoriesHandler = () => {
+        context.setSelectedBook('');
+        context.setSelectedCategory('');
+        context.setSearch('');
     };
 
     const ordered = context.selectedBook.ordered;
@@ -36,7 +43,14 @@ function BookDetails() {
         <div className={classes['book-details-container']}>
             <div className={classes['book-details']}>
                 <div className={classes['book-details-navigation']}>
-                    <p className={classes['back-to-library']} onClick={backToLibraryHandler}>A nossa biblioteca</p>
+                    <p className={classes['back-to-library']} onClick={props.from === 'library' ? backToLibraryHandler : backToCategoriesHandler}>
+                        {props.from === 'library' && 'A nossa biblioteca'}
+                        {props.from === 'categories' && 'Categorias'}
+                    </p>
+                    {props.from === 'categories' && <Fragment>
+                        <img src={Arrow} alt='arrow-right' />
+                        <p onClick={backToLibraryHandler} style={{ cursor: 'pointer' }}>{context.selectedCategory}</p>
+                    </Fragment>}
                     <img src={Arrow} alt='arrow-right' />
                     <p>{context.selectedBook.title}</p>
                 </div>

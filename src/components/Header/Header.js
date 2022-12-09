@@ -22,6 +22,8 @@ function Header() {
 
     const setLocationHandler = event => {
         setLocation(event.currentTarget.id);
+        context.setSelectedBook('');
+        context.setSelectedCategory('');
     };
 
     const setLanguageHandler = event => {

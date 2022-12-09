@@ -4,18 +4,15 @@ import AddBook from './AddBook/AddBook';
 import BookDetails from './BookDetails/BookDetails';
 import classes from './Library.module.css';
 import Search from '../../components/Search/Search';
-import { Books } from '../../storage/Books/Books';
 import NewBook from './assets/new-book.svg';
 import Pagination from './assets/pagination.svg';
 
 function Library() {
     const context = useContext(Context);
-
-    const [search, setSearch] = useState('');
     const [highlighted, setHighlighted] = useState('1');
 
     const setSearchHandler = event => {
-        setSearch(event.target.value);
+        context.setSearch(event.target.value);
     };
 
     const [showAddBook, setShowAddBook] = useState(false);
@@ -45,18 +42,18 @@ function Library() {
 
     return <Fragment>
         {showAddBook && <AddBook onExit={setShowAddBookHandler} />}
-        {context.selectedBook !== '' ? <BookDetails /> :
+        {context.selectedBook !== '' ? <BookDetails from='library' /> :
             <div className={classes['library-container']}>
                 <div className={classes['library']}>
                     <h1>A nossa biblioteca</h1>
-                    <Search value={search} onChange={setSearchHandler} placeholder='Pesquise um livro' />
+                    <Search value={context.search} onChange={setSearchHandler} placeholder='Pesquise um livro' />
                     <div className={classes['books-list-container']}>
                         <div className={classes['new-book']} onClick={setShowAddBookHandler}>
                             <img src={NewBook} alt='new-book' />
                             <p>Adicionar um livro</p>
                         </div>
 
-                        {Books.map(book => book.title.toLowerCase().includes(search.trim().toLowerCase()) &&
+                        {context.books.map(book => book.title.toLowerCase().includes(context.search.trim().toLowerCase()) &&
                             <div key={book.id} id={book.id} className={classes['book-card']} onClick={onExpandBookDetailsHandler}>
                                 <img src={book.image} alt={book.title} />
                                 <p className={classes['book-title']}>{book.title}</p>

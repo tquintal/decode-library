@@ -6,8 +6,8 @@ import FifthBook from './assets/5.svg';
 import SixthBook from './assets/6.svg';
 import SeventhBook from './assets/7.svg';
 
-export const Books =
-    [{
+export const Books = [
+    {
         id: 2,
         title: 'Torne-se um decifrador de pessoas',
         author: 'Alexandre Monteiro',
@@ -97,4 +97,33 @@ export const Books =
         dislikes: 0,
         publish: 'Outros',
         image: SeventhBook
-    }];
+    }
+];
+
+export const Categories = [
+    'Desenvolvimento pessoal',
+    'Outros',
+    'Arte',
+    'Banda desenhada',
+    'Ciências exatas e naturais',
+    'Ciências sociais e humanas',
+    'Desporto e lazer',
+    'Dicionários e enciclopédias',
+    'Direito',
+    'Economia e finanças',
+    'Engenharia',
+    'Ensino e educação',
+    'Gastronomia e vinhos',
+    'Gestão',
+    'Guias turísticos e mapas',
+    'História',
+    'Infantis e juvenis',
+    'Informática',
+    'Literatura',
+    'Medicina',
+    'Plano nacional de leitura',
+    'Política',
+    'Saúde e bem-estar',
+    'Religião e moral',
+    'Vida prática'
+];

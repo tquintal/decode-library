@@ -10,7 +10,7 @@ const Search = props => {
             placeholder={props.placeholder}
             value={props.value}
             onChange={props.onChange}
-            autoFocus={true}
+            autoFocus={props.autoFocus || true}
         />
     </div>
 };

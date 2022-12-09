@@ -1,0 +1,27 @@
+.categories-details-container {
+  width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 40px;
+  padding-top: 0px;
+}
+
+.category-details-navigation {
+  display: flex;
+  align-items: center;
+  font-family: var(--rokkitt);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.back-to-categories {
+  color: var(--orange);
+  cursor: pointer;
+}
+
+.books-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
