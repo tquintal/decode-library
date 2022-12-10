@@ -2,7 +2,8 @@ import Context from '../../context/context';
 import { useContext, useState } from 'react';
 import classes from './Header.module.css';
 import Logo from './assets/logo.svg';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import UserFigure from './assets/user-figure.svg';
 import Arrow from './assets/arrow-down.svg';
 import PT from './assets/pt-flag.svg';
 import EN from './assets/uk-flag.svg';
@@ -23,8 +24,11 @@ function Header() {
     const setLocationHandler = event => {
         setLocation(event.currentTarget.id);
         context.clearStates();
-        // context.setSelectedBook('');
-        // context.setSelectedCategory('');
+    };
+
+    const [showLogout, setShowLogout] = useState(false);
+    const setShowLogoutHandler = () => {
+        setShowLogout(prev => !prev);
     };
 
     const setLanguageHandler = event => {
@@ -54,7 +58,11 @@ function Header() {
         </div>
 
         <div className={classes['login-language']}>
-            <button className={classes['login-button']}>Login</button>
+            {
+                context.login === 'false' ?
+                    <Link to='/login' style={{ all: 'unset' }} id={'/'} onClick={setLocationHandler}><button className={classes['login-button']}>Login</button></Link> :
+                    <img src={UserFigure} alt='user-figure' onClick={setShowLogoutHandler} />
+            }
             <div className={classes['language']} onClick={displayLanguageHandler}>
                 <img src={Arrow} alt='arrow' style={{ transform: displayLanguageDropdown && 'rotate(180deg)' }} />
                 <img src={context.lang === 'PT' ? PT : EN} alt='pt-flag' />

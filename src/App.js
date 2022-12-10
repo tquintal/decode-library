@@ -5,6 +5,7 @@ import Home from './views/Home/Home';
 import Library from './views/Library/Library';
 import Categories from './views/Categories/Categories';
 import About from './views/About/About';
+import Login from './views/Login/Login';
 
 function App() {
   return <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
         <Route path='/library' element={<Library />} />
         <Route path='/categories' element={<Categories />} />
         <Route path='/about' element={<About />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </div>
   </BrowserRouter>

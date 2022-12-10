@@ -4,7 +4,7 @@ const SecondaryButton = props => {
     return <button
         type={props.type}
         onClick={props.onClick}
-        className={classes['secondary-button']}
+        className={`${classes['secondary-button']} ${props.className}`}
         style={props.style}
     >
         {props.content}

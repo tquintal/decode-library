@@ -17,9 +17,13 @@
   font-size: 20px;
 }
 
-.back-button {
+.link-back-button {
+  all: unset;
   display: flex;
   align-self: center;
   justify-content: center;
   min-width: 128px;
+}
+
+.back-button {
 }

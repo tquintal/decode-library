@@ -1,0 +1,67 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0px;
+  font-family: var(--rubik);
+}
+
+.login {
+  width: 1280px;
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 120px;
+  padding: 40px;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.left-container h1 {
+  font-family: var(--rokkitt);
+  font-weight: 500;
+  font-size: 52px;
+  text-transform: uppercase;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-container h1 {
+  font-family: var(--rokkitt);
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+.right-container hr {
+  width: 216px;
+  align-self: center;
+}
+
+.input-button {
+  width: 360px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.quote {
+  font-style: italic;
+  color: var(--grey);
+  font-size: 20px;
+}
+
+.quote-author {
+  padding-top: 16px;
+  font-weight: 700;
+}

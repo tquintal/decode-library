@@ -7,7 +7,7 @@ const Input = props => {
         value={props.value}
         onChange={props.onChange}
         required={props.required || false}
-        className={classes['input-component']}
+        className={`${classes['input-component']} ${props.className}`}
         style={props.style}
     />
 }

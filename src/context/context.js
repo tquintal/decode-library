@@ -24,7 +24,7 @@ const Context = React.createContext({
 export const ContextProvider = props => {
     const [language, setLanguage] = useState(localStorage.getItem('Lang') || localStorage.setItem('Lang', 'PT') || 'PT');
     const [content, setContent] = useState(PT);
-    const [login, setLogin] = useState(localStorage.getItem('Login') || localStorage.setItem('Login', 'false'));
+    const [login, setLogin] = useState(localStorage.getItem('Login') || localStorage.setItem('Login', 'false') || 'false');
     const [search, setSearch] = useState('');
     const [selectedBook, setSelectedBook] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -40,12 +40,12 @@ export const ContextProvider = props => {
         } else if (language === 'EN') {
             setContent(EN);
         };
+
     }, [language]);
 
-    const setLoginHandler = () => {
-        const state = login === 'true' || false;
-        setLogin(state);
-        localStorage.setItem('Login', `${state}`);
+    const setLoginHandler = value => {
+        setLogin(value);
+        localStorage.setItem('Login', value);
     };
 
     const setSearchHandler = word => {
@@ -57,7 +57,7 @@ export const ContextProvider = props => {
             setSelectedBook(Books.find(book => parseInt(book.id) === parseInt(bookId)));
         } else {
             setSelectedBook(bookId);
-        }
+        };
     };
 
     const setSelectedCategoryHandler = category => {
