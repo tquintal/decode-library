@@ -7,6 +7,7 @@ import BookFigure from './assets/book-figure.svg';
 import DimmedBackground from '../../components/DimmedBackground/DimmedBackground';
 import SuccessModal from '../../components/SuccessModal/SuccessModal';
 import NewsletterFigure from './assets/newsletter-figure.svg';
+import { Link } from 'react-router-dom';
 import Input from '../../components/Input/Input';
 
 function Home() {
@@ -14,8 +15,8 @@ function Home() {
 
     const [email, setEmail] = useState('');
 
-    const onClickHandler = () => {
-        console.log('Hello world');
+    const onOrderBookHandler = () => {
+        context.setLocation('library');
     };
 
     const [showSubscribed, setShowSubscribed] = useState(false);
@@ -58,7 +59,7 @@ function Home() {
                     <p className={classes['welcome-text']}>
                         {context.content.description}
                     </p>
-                    <PrimaryButton content={context.content.orderBook} onClick={onClickHandler} />
+                    <Link to='/library' style={{ all: 'unset' }}><PrimaryButton content={context.content.orderBook} onClick={onOrderBookHandler} /></Link>
                 </div>
                 <img src={BookFigure} alt='book-figure' />
             </div>

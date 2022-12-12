@@ -9,6 +9,7 @@ import PrimaryButton from '../../ui/PrimaryButton/PrimaryButton';
 import SecondaryButton from '../../ui/SecondaryButton/SecondaryButton';
 import SuccessModal from '../../components/SuccessModal/SuccessModal';
 import DimmedBackground from '../../components/DimmedBackground/DimmedBackground';
+import { Link } from 'react-router-dom';
 
 function Login() {
     const context = useContext(Context);
@@ -67,7 +68,7 @@ function Login() {
                 </div>
                 <PrimaryButton content='Login' type='submit' className={classes['input-button']} />
                 <hr />
-                <SecondaryButton content='Não tem conta? Registe-se aqui' className={classes['input-button']} />
+                <Link to='/sign-up' className={classes['go-to-login']}><SecondaryButton content='Não tem conta? Registe-se aqui' className={classes['input-button']} /></Link>
             </form>
         </div>
     </div>

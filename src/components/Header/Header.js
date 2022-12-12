@@ -1,8 +1,9 @@
 import Context from '../../context/context';
-import { useContext, useState } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import classes from './Header.module.css';
 import Logo from './assets/logo.svg';
 import { Link, NavLink } from 'react-router-dom';
+import LogOutFigure from './assets/log-out-figure.svg';
 import UserFigure from './assets/user-figure.svg';
 import Arrow from './assets/arrow-down.svg';
 import PT from './assets/pt-flag.svg';
@@ -13,22 +14,16 @@ function Header() {
 
     const [displayLanguageDropdown, setDisplayLanguageDropdown] = useState(false);
 
-    const [location, setLocation] = useState(
-        window.location.pathname !== '/' ? window.location.pathname.slice(1) : '/'
-    );
-
     const displayLanguageHandler = () => {
         setDisplayLanguageDropdown(prevState => !prevState);
     };
 
     const setLocationHandler = event => {
-        setLocation(event.currentTarget.id);
-        context.clearStates();
+        context.setLocation(event.currentTarget.id);
     };
 
-    const [showLogout, setShowLogout] = useState(false);
-    const setShowLogoutHandler = () => {
-        setShowLogout(prev => !prev);
+    const logOutHandler = () => {
+        context.setLogin('false');
     };
 
     const setLanguageHandler = event => {
@@ -41,19 +36,19 @@ function Header() {
         <div className={classes['navigation']}>
             <div className={classes['navigation-item']}>
                 <NavLink to='/' id='/' onClick={setLocationHandler}><p>{context.content.menu.home}</p></NavLink>
-                {location === '/' && <hr className={classes['under-line']} />}
+                {context.location === '/' && <hr className={classes['under-line']} />}
             </div>
             <div className={classes['navigation-item']}>
                 <NavLink to='/library' id='library' onClick={setLocationHandler}><p>{context.content.menu.books}</p></NavLink>
-                {location === 'library' && <hr className={classes['under-line']} />}
+                {context.location === 'library' && <hr className={classes['under-line']} />}
             </div>
             <div className={classes['navigation-item']}>
                 <NavLink to='/categories' id='categories' onClick={setLocationHandler}><p>{context.content.menu.categories}</p></NavLink>
-                {location === 'categories' && <hr className={classes['under-line']} />}
+                {context.location === 'categories' && <hr className={classes['under-line']} />}
             </div>
             <div className={classes['navigation-item']}>
                 <NavLink to='/about' id='about' onClick={setLocationHandler}><p>{context.content.menu.about}</p></NavLink>
-                {location === 'about' && <hr className={classes['under-line']} />}
+                {context.location === 'about' && <hr className={classes['under-line']} />}
             </div>
         </div>
 
@@ -61,7 +56,10 @@ function Header() {
             {
                 context.login === 'false' ?
                     <Link to='/login' style={{ all: 'unset' }} id={'/'} onClick={setLocationHandler}><button className={classes['login-button']}>Login</button></Link> :
-                    <img src={UserFigure} alt='user-figure' onClick={setShowLogoutHandler} />
+                    <Fragment>
+                        <img src={UserFigure} alt='user-figure' />
+                        <img src={LogOutFigure} alt='log-out-figure' onClick={logOutHandler} style={{ cursor: 'pointer' }} />
+                    </Fragment>
             }
             <div className={classes['language']} onClick={displayLanguageHandler}>
                 <img src={Arrow} alt='arrow' style={{ transform: displayLanguageDropdown && 'rotate(180deg)' }} />

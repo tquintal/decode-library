@@ -10,7 +10,7 @@
   width: 1280px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
   padding: 40px;
   padding-top: 0px;
 }

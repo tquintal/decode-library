@@ -10,11 +10,13 @@ const Context = React.createContext({
     lang: null,
     content: null,
     login: null,
+    location: null,
     search: null,
     books: null,
     categories: null,
     setLanguage: () => { },
     setLogin: () => { },
+    setLocation: () => { },
     setSearch: () => { },
     setSelectedBook: () => { },
     setSelectedCategory: () => { },
@@ -25,9 +27,18 @@ export const ContextProvider = props => {
     const [language, setLanguage] = useState(localStorage.getItem('Lang') || localStorage.setItem('Lang', 'PT') || 'PT');
     const [content, setContent] = useState(PT);
     const [login, setLogin] = useState(localStorage.getItem('Login') || localStorage.setItem('Login', 'false') || 'false');
+    const [location, setLocation] = useState(
+        window.location.pathname !== '/' ? window.location.pathname.slice(1) : '/'
+    );
     const [search, setSearch] = useState('');
     const [selectedBook, setSelectedBook] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
+
+    const clearStatesHandler = () => {
+        setSearch('');
+        setSelectedBook('');
+        setSelectedCategory('');
+    };
 
     const setLanguageHandler = lang => {
         setLanguage(lang);
@@ -48,6 +59,11 @@ export const ContextProvider = props => {
         localStorage.setItem('Login', value);
     };
 
+    const setLocationHandler = location => {
+        setLocation(location);
+        clearStatesHandler();
+    };
+
     const setSearchHandler = word => {
         setSearch(word);
     };
@@ -64,12 +80,6 @@ export const ContextProvider = props => {
         setSelectedCategory(category);
     };
 
-    const clearStatesHandler = () => {
-        setSearch('');
-        setSelectedBook('');
-        setSelectedCategory('');
-    };
-
     return (
         <Context.Provider
             value={{
@@ -78,11 +88,13 @@ export const ContextProvider = props => {
                 lang: language,
                 content: content,
                 login: login,
+                location: location,
                 search: search,
                 books: Books,
                 categories: Categories,
                 setLanguage: setLanguageHandler,
                 setLogin: setLoginHandler,
+                setLocation: setLocationHandler,
                 setSearch: setSearchHandler,
                 setSelectedBook: setSelectedBookHandler,
                 setSelectedCategory: setSelectedCategoryHandler,
