@@ -77,9 +77,9 @@
   gap: 12px;
 }
 
-.book-container img {
-  height: 381px;
-  width: fit-content;
+.book-cover {
+  max-width: 264px;
+  max-height: 381px;
 }
 
 .book-description {
