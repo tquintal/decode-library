@@ -1,7 +1,7 @@
 import Context from '../../context/context';
 import { useContext, useState } from 'react';
 import classes from './Login.module.css';
-import BooksFigure from './assets/books-figure.svg';
+import BooksFigure from './assets/login-books-figure-min.png';
 import Input from '../../components/Input/Input';
 import CheckBoxFigure from './assets/checkbox-figure.svg'
 import CheckBoxClickFigure from './assets/checkbox-click-figure.svg';

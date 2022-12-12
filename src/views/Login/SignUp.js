@@ -2,7 +2,7 @@ import { useState } from 'react';
 import classes from './Login.module.css';
 import DimmedBackground from '../../components/DimmedBackground/DimmedBackground';
 import SuccessModal from '../../components/SuccessModal/SuccessModal';
-import BooksFigure from './assets/books-figure-sign-up.svg';
+import BooksFigure from './assets/sign-up-books-figure-min.png';
 import Input from '../../components/Input/Input';
 import CheckBoxFigure from './assets/checkbox-figure.svg'
 import CheckBoxClickFigure from './assets/checkbox-click-figure.svg';
