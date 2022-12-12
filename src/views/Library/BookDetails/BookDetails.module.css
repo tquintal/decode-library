@@ -37,6 +37,11 @@
   gap: 24px;
 }
 
+.book-cover {
+  max-width: 264px;
+  max-height: 381px;
+}
+
 .book-interaction {
   display: flex;
   flex-direction: column;

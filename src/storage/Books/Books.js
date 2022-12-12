@@ -1,10 +1,10 @@
-import FirstBook from './assets/1.svg';
-import SecondBook from './assets/2.svg';
-import ThirdBook from './assets/3.svg';
-import FourthBook from './assets/4.svg';
-import FifthBook from './assets/5.svg';
-import SixthBook from './assets/6.svg';
-import SeventhBook from './assets/7.svg';
+import FirstBook from './assets/1-min.png';
+import SecondBook from './assets/2-min.png';
+import ThirdBook from './assets/3-min.png';
+import FourthBook from './assets/4-min.png';
+import FifthBook from './assets/5-min.png';
+import SixthBook from './assets/6-min.png';
+import SeventhBook from './assets/7-min.png';
 
 export const Books = [
     {

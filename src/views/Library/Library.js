@@ -55,7 +55,7 @@ function Library() {
 
                         {context.books.map(book => book.title.toLowerCase().includes(context.search.trim().toLowerCase()) &&
                             <div key={book.id} id={book.id} className={classes['book-card']} onClick={onExpandBookDetailsHandler}>
-                                <img src={book.image} alt={book.title} />
+                                <img src={book.image} alt={book.title} className={classes['book-cover']} />
                                 <p className={classes['book-title']}>{book.title}</p>
                                 <p className={classes['book-author']}>{book.author}</p>
                                 <p className={classes['book-price']}>{book.price}€/semana</p>

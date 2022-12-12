@@ -55,7 +55,7 @@ const BookDetails = props => {
 
                 <div className={classes['book-section-container']}>
                     <div className={classes['book-interaction-container']}>
-                        <img src={context.selectedBook.image} alt='book-cover' />
+                        <img src={context.selectedBook.image} alt='book-cover' className={classes['book-cover']} />
                         <div className={classes['book-interaction']}>
                             <img src={Favorite} alt='favorite-figure' className={classes['favorite']} />
                             <div className={classes['like-dislike-container']}>

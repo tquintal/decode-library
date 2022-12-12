@@ -46,6 +46,11 @@
   cursor: pointer;
 }
 
+.book-cover {
+  max-width: 264px;
+  max-height: 381px;
+}
+
 .book-title {
   max-width: 200px;
   min-height: 38px;

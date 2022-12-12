@@ -28,7 +28,7 @@ function CategoryDetails() {
                         <div className={bookClasses['books-list-container']}>
                             {context.books.filter(book => book.category === context.selectedCategory).map(book =>
                                 <div key={book.id} id={book.id} className={bookClasses['book-card']} onClick={onExpandBookDetailsHandler}>
-                                    <img src={book.image} alt={book.title} />
+                                    <img src={book.image} alt={book.title} className={bookClasses['book-cover']} />
                                     <p className={bookClasses['book-title']}>{book.title}</p>
                                     <p className={bookClasses['book-author']}>{book.author}</p>
                                     <p className={bookClasses['book-price']}>{book.price}€/semana</p>
